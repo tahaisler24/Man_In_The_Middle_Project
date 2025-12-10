@@ -18,7 +18,7 @@ def ip_forwarding_ac():
         print(f"[-] An unexpected error: {e}")
 
 
-# ✔ Tek parser burada
+
 parse_object = optparse.OptionParser()
 parse_object.add_option("-e", "--enable", dest="enable_forward", action="store_true")
 parse_object.add_option("-t", "--target", dest="target_ip", help="Enter target ip address")
@@ -26,14 +26,14 @@ parse_object.add_option("-g", "--gateway", dest="gateway_ip", help="Enter gatewa
 (user_inputs, arguments) = parse_object.parse_args()
 
 
-# ✔ IP forwarding
+
 if user_inputs.enable_forward:
     ip_forwarding_ac()
 else:
     print("[*] The -e parameter was not entered, so the IP forwarding process is skipped.")
 
 
-# ✔ Kullanıcı giriş kontrolü (parser yeniden oluşturulmadı!)
+
 def get_user_input():
     if not user_inputs.target_ip:
         print("[-] Target IP address is required.")
